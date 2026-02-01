@@ -35,6 +35,10 @@ ruby build.rb                  # render the site to output/
 
 The GitHub Actions workflow (`.github/workflows/build.yml`) runs every 30 minutes. It caches `data/items.json` and `data/etags.json` between runs so the fetcher can merge incrementally and use conditional HTTP requests. The built site is deployed to GitHub Pages. Ta-da! 🪄
 
+## Credits
+
+GitHub corner ribbon by [Tim Holman](https://tholman.com/github-corners/).
+
 ## License
 
 MIT. See `LICENSE`.
