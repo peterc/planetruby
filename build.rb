@@ -66,19 +66,34 @@ def relative_time(iso_string)
   result
 end
 
+def quiet_day_message(date_sub)
+  QUIET_DAY_MESSAGES[date_sub.hash.abs % QUIET_DAY_MESSAGES.length]
+end
+
+SPECIAL_DATES = {
+  [2, 24] => "Ruby's Birthday",
+  [4, 14] => "Matz's Birthday"
+}
+
 def date_label(iso_string)
   date = Time.parse(iso_string).utc.to_date
   today = Time.now.utc.to_date
+  special = SPECIAL_DATES[[date.month, date.day]]
 
-  if date == today
-    ["Today", date.strftime("%B %-d")]
-  elsif date == today - 1
-    ["Yesterday", date.strftime("%B %-d")]
-  elsif date >= today - 7
-    [date.strftime("%A"), date.strftime("%B %-d")]
-  else
-    [date.strftime("%B %-d"), date.strftime("%Y")]
-  end
+  label = if date == today
+            "Today"
+          elsif date == today - 1
+            "Yesterday"
+          elsif date >= today - 7
+            date.strftime("%A")
+          else
+            date.strftime("%B %-d")
+          end
+
+  label = special if special
+  sub = date >= today - 7 ? date.strftime("%B %-d") : date.strftime("%Y")
+
+  [label, sub]
 end
 
 # --- Main ---
@@ -94,14 +109,30 @@ all_items = JSON.parse(File.read(DATA_FILE))
 cutoff = (Time.now.utc - 30 * 86_400).iso8601
 items = all_items.select { |item| item["published"] >= cutoff }
 
-# Group items by date label, preserving order (already sorted by date desc)
-grouped_items = items.each_with_object([]) do |item, groups|
-  label = date_label(item["published"])
-  if groups.last && groups.last[0] == label
-    groups.last[1] << item
-  else
-    groups << [label, [item]]
-  end
+QUIET_DAY_MESSAGES = [
+  "Ruby land was quiet today.",
+  "Nothing to report. Even Matz takes a day off.",
+  "A quiet day in the Ruby community.",
+  "No posts today. Everyone must be busy writing code.",
+  "Tumbleweeds in Ruby land today.",
+  "The gems were resting today.",
+  "All quiet on the Ruby front.",
+  "Nothing new today. Must be a refactoring day.",
+]
+
+# Group items by date, preserving order (already sorted by date desc)
+items_by_date = items.each_with_object({}) do |item, h|
+  date = Time.parse(item["published"]).utc.to_date
+  (h[date] ||= []) << item
+end
+
+# Fill in every day from today back to the cutoff date
+today = Time.now.utc.to_date
+cutoff_date = (Time.now.utc - 30 * 86_400).to_date
+grouped_items = (cutoff_date..today).to_a.reverse.map do |date|
+  label = date_label(date.iso8601)
+  day_items = items_by_date[date] || []
+  [label, day_items]
 end
 
 template_path = File.join(TEMPLATE_DIR, "index.html.erb")
