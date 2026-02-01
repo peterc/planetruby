@@ -123,6 +123,8 @@ def parse_feed(xml, source_name, feed_url, cutoff:)
            end
     link = link.strip
     next if link.empty?
+    link = URI.join(feed_url, link).to_s unless link.start_with?("http")
+
 
     pub_date = if item.respond_to?(:pubDate) && item.pubDate
                  item.pubDate
