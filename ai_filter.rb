@@ -13,7 +13,7 @@ OPENROUTER_API_KEY = ENV.fetch("OPENROUTER_API_KEY") {
 }
 
 OPENROUTER_URL = URI("https://openrouter.ai/api/v1/chat/completions")
-MODEL = "openai/gpt-oss-120b:nitro"
+MODEL = "x-ai/grok-code-fast-1"
 
 SYSTEM_PROMPT = <<~PROMPT
   You are a content filter for a Ruby and Rails news aggregator called Planet Ruby.
@@ -36,8 +36,10 @@ SYSTEM_PROMPT = <<~PROMPT
      * Use Markdown where appropriate for tiny bits of code or italics/bold if the author used or implied them.
      * Remove URLs or links from the content.
      * Don't put words into the author's mouth, like "I did X" etc. since we are summarizing, we need to be more neutral and like a curator.
+     * You don't need to start "The author" or "The post" - people know there are posts by authors. Instead of "The author discusses using X to do Y" you can just say "A look into using X to do Y" or similar.
      * If the article has a tagline or subtitle of its own, lean on it heavily as it's already a good descriptor.
      * No em dashes, en dashes, or typical AI slop cliches.
+     * Just call "Ruby on Rails" "Rails" instead. Every Rubyist calls it Rails.
   4. Give us a score out of 10 on how timely or urgent the item is.
      * Major Ruby or Rails releases are higher scoring.
      * Major security announcements are higher scoring.

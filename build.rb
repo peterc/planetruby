@@ -17,6 +17,11 @@ def h(text)
   CGI.escapeHTML(text.to_s)
 end
 
+def inline_code(text)
+  s = CGI.escapeHTML(text.to_s)
+  s.gsub(/`([^`]+)`/, '<code>\1</code>')
+end
+
 def inline_markdown(text)
   s = CGI.escapeHTML(text.to_s)
   s = s.gsub(/`([^`]+)`/, '<code>\1</code>')

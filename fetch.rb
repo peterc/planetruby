@@ -9,16 +9,18 @@ require "fileutils"
 require "time"
 require "rexml/document"
 
-OPML_FILE = File.join(__dir__, "feeds.opml")
-DATA_DIR   = File.join(__dir__, "data")
-OUTPUT_FILE = File.join(DATA_DIR, "items.json")
+OPML_FILE    = File.join(__dir__, "feeds.opml")
+DATA_DIR     = File.join(__dir__, "data")
+OUTPUT_FILE  = File.join(DATA_DIR, "items.json")
+ETAG_FILE    = File.join(DATA_DIR, "etags.json")
 
 FETCH_TIMEOUT = 15 # seconds
 MAX_REDIRECTS = 5
 USER_AGENT = "PlanetRuby/1.0"
 EXCERPT_LENGTH = 1000
+MAX_AGE_DAYS = 30
 
-def fetch_url(url, redirect_limit = MAX_REDIRECTS)
+def fetch_url(url, headers: {}, redirect_limit: MAX_REDIRECTS)
   raise "Too many redirects" if redirect_limit == 0
 
   uri = URI.parse(url)
@@ -29,17 +31,19 @@ def fetch_url(url, redirect_limit = MAX_REDIRECTS)
 
   request = Net::HTTP::Get.new(uri.request_uri)
   request["User-Agent"] = USER_AGENT
+  headers.each { |k, v| request[k] = v }
 
   response = http.request(request)
 
   case response
+  when Net::HTTPNotModified
+    nil
   when Net::HTTPSuccess
-    response.body
+    response
   when Net::HTTPRedirection
     location = response["location"]
-    # Handle relative redirects
     location = URI.join(url, location).to_s unless location.start_with?("http")
-    fetch_url(location, redirect_limit - 1)
+    fetch_url(location, headers: headers, redirect_limit: redirect_limit - 1)
   else
     raise "HTTP #{response.code}: #{response.message}"
   end
@@ -96,7 +100,7 @@ def feed_site_url(feed)
     .first || ""
 end
 
-def parse_feed(xml, source_name)
+def parse_feed(xml, source_name, feed_url, cutoff:)
   feed = RSS::Parser.parse(xml, false)
   return [] unless feed
 
@@ -130,11 +134,13 @@ def parse_feed(xml, source_name)
                  item.updated.respond_to?(:content) ? item.updated.content : item.updated
                end
 
+    next unless pub_date
     pub_date = begin
       pub_date.is_a?(Time) ? pub_date : Time.parse(pub_date.to_s)
     rescue
-      Time.now
+      next
     end
+    next if pub_date < cutoff
 
     description = if item.respond_to?(:description) && item.description
                     item.description.to_s
@@ -156,6 +162,7 @@ def parse_feed(xml, source_name)
       published: pub_date.utc.iso8601,
       source: source_name,
       source_url: source_url,
+      feed_url: feed_url,
       excerpt: excerpt(description)
     }
   end
@@ -188,17 +195,45 @@ unless File.exist?(OPML_FILE)
 end
 
 feeds = parse_opml(OPML_FILE)
+cutoff = Time.now.utc - MAX_AGE_DAYS * 86_400
+
+# Load existing items (if any) for merging
+FileUtils.mkdir_p(DATA_DIR)
+existing_items = if File.exist?(OUTPUT_FILE)
+  JSON.parse(File.read(OUTPUT_FILE))
+else
+  []
+end
+
+# Drop expired items from existing data
+existing_cutoff = cutoff.utc.iso8601
+existing_items.reject! { |item| item["published"] < existing_cutoff }
+
+# Index existing items by normalized URL for merging
+existing_by_url = {}
+existing_items.each do |item|
+  key = item["url"].to_s.sub(/\/$/, "")
+  existing_by_url[key] = item
+end
 
 THREAD_COUNT = 4
 
-all_items = []
+# Load etag/last-modified cache
+etag_cache = if File.exist?(ETAG_FILE)
+  JSON.parse(File.read(ETAG_FILE))
+else
+  {}
+end
+
+fresh_items = []
 success_count = 0
+not_modified_count = 0
 error_count = 0
 mutex = Mutex.new
 
 queue = Queue.new
 feeds.each { |feed| queue << feed }
-THREAD_COUNT.times { queue << nil } # poison pills
+THREAD_COUNT.times { queue << nil }
 
 threads = THREAD_COUNT.times.map do
   Thread.new do
@@ -209,8 +244,32 @@ threads = THREAD_COUNT.times.map do
       url = feed[:url]
 
       begin
-        xml = fetch_url(url)
-        items = parse_feed(xml, name)
+        # Build conditional request headers
+        conditional = {}
+        if (cached = etag_cache[url])
+          conditional["If-None-Match"] = cached["etag"] if cached["etag"]
+          conditional["If-Modified-Since"] = cached["last_modified"] if cached["last_modified"]
+        end
+
+        response = fetch_url(url, headers: conditional)
+
+        if response.nil?
+          mutex.synchronize do
+            not_modified_count += 1
+            puts "#{name}: not modified"
+          end
+          next
+        end
+
+        # Store response headers for next time
+        mutex.synchronize do
+          etag_cache[url] = {
+            "etag" => response["etag"],
+            "last_modified" => response["last-modified"]
+          }.compact
+        end
+
+        items = parse_feed(response.body, name, url, cutoff: cutoff)
         thread_items.concat(items)
         mutex.synchronize do
           success_count += 1
@@ -228,28 +287,45 @@ threads = THREAD_COUNT.times.map do
   end
 end
 
-threads.each do |t|
-  all_items.concat(t.value)
-end
+threads.each { |t| fresh_items.concat(t.value) }
 
-# Deduplicate by URL (keep first occurrence, which is from the first feed listed)
-seen_urls = {}
-unique_items = all_items.reject do |item|
-  url = item[:url].sub(/\/$/, "") # normalize trailing slash
-  if seen_urls[url]
-    true
+# Save etag cache
+File.write(ETAG_FILE, JSON.pretty_generate(etag_cache))
+
+# Merge: fresh items update existing ones by URL, new URLs get added.
+# Existing items not re-fetched are kept (feed might be slow/down).
+fresh_items.each do |item|
+  key = item[:url].sub(/\/$/, "")
+  existing = existing_by_url[key]
+
+  if existing
+    # Update crawl-sourced fields but preserve AI filtering work
+    existing["title"] = item[:title] unless existing["ai_filtered"]
+    existing["excerpt"] = item[:excerpt] unless existing["ai_filtered"]
+    existing["published"] = item[:published]
+    existing["source"] = item[:source]
+    existing["source_url"] = item[:source_url]
+    existing["feed_url"] = item[:feed_url]
   else
-    seen_urls[url] = true
-    false
+    existing_by_url[key] = {
+      "title" => item[:title],
+      "url" => item[:url],
+      "published" => item[:published],
+      "source" => item[:source],
+      "source_url" => item[:source_url],
+      "feed_url" => item[:feed_url],
+      "excerpt" => item[:excerpt]
+    }
   end
 end
 
-# Sort by date descending
-unique_items.sort_by! { |item| item[:published] }.reverse!
+# Collect, sort by date descending
+merged = existing_by_url.values
+merged.sort_by! { |item| item["published"] }.reverse!
 
-FileUtils.mkdir_p(DATA_DIR)
-File.write(OUTPUT_FILE, JSON.pretty_generate(unique_items))
+File.write(OUTPUT_FILE, JSON.pretty_generate(merged))
 
+new_count = merged.length - existing_items.length
 puts
-puts "Done. #{unique_items.length} unique items from #{success_count} feeds (#{error_count} errors)."
+puts "Done. #{merged.length} items (#{new_count >= 0 ? "+#{new_count}" : new_count} new) from #{success_count} feeds (#{not_modified_count} unchanged, #{error_count} errors)."
 puts "Written to #{OUTPUT_FILE}"

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <opml version='2.0'>
   <head>
-    <title>Planet Ruby - Filtered Feeds</title>
+    <title>Planet Ruby</title>
     <dateCreated>Sun, 01 Feb 2026 14:17:32 GMT</dateCreated>
   </head>
   <body>
@@ -11,56 +11,58 @@
     <outline type='rss' text='Akita On Rails' title='Akita On Rails' xmlUrl='https://feeds.feedburner.com/AkitaOnRails'/>
     <outline type='rss' text='Alchemists' title='Alchemists' xmlUrl='https://www.alchemists.io/feeds/articles.xml'/>
     <outline type='rss' text='Alexandre Barret' title='Alexandre Barret' xmlUrl='https://alexbarret.com/feed.xml'/>
+    <outline type='rss' text='Ali Sepehri' title='Ali Sepehri' xmlUrl='https://alisepehri.medium.com/feed'/>
     <outline type='rss' text='André Arko' title='André Arko' xmlUrl='https://andre.arko.net/atom.xml'/>
     <outline type='rss' text='Andy Croll' title='Andy Croll' xmlUrl='https://andycroll.com/rss.xml'/>
+    <outline type='rss' text='AppSignal' title='AppSignal' xmlUrl='https://blog.appsignal.com/ruby-magic-feed.xml'/>
+    <outline type='rss' text='Arkency' title='Arkency' xmlUrl='https://feeds.feedburner.com/arkency.xml'/>
     <outline type='rss' text='Avdi' title='Avdi' xmlUrl='https://avdi.codes/feed/'/>
     <outline type='rss' text='Avo' title='Avo' xmlUrl='https://avohq.io/blog/rss'/>
     <outline type='rss' text='Awesome Ruby Newsletter' title='Awesome Ruby Newsletter' xmlUrl='https://ruby.libhunt.com/newsletter/feed'/>
+    <outline type='rss' text='AWS Developer Tools' title='AWS Developer Tools' xmlUrl='https://aws.amazon.com/blogs/developer/category/programing-language/ruby/feed/'/>
     <outline type='rss' text='Benito Serna' title='Benito Serna' xmlUrl='https://bhserna.com/feed.xml'/>
     <outline type='rss' text='Benoit Tigeot' title='Benoit Tigeot' xmlUrl='https://benoittgt.github.io/feed.xml'/>
+    <outline type='rss' text='Bibliographic Wilderness' title='Bibliographic Wilderness' xmlUrl='https://bibwild.wordpress.com/feed/?tag=ruby'/>
     <outline type='rss' text='BigBinary' title='BigBinary' xmlUrl='https://www.bigbinary.com/blog/feed.xml'/>
-    <outline type='rss' text='Noel Rappin' title='Noel Rappin' xmlUrl='https://noelrappin.com//blog/index.xml'/>
     <outline type='rss' text='Boring Rails' title='Boring Rails' xmlUrl='https://boringrails.com/feed.xml'/>
+    <outline type='rss' text='Brandon Weaver' title='Brandon Weaver' xmlUrl='https://dev.to/feed/baweaver'/>
     <outline type='rss' text='Bundler' title='Bundler' xmlUrl='https://bundler.io/blog/feed.xml'/>
     <outline type='rss' text='byroot' title='byroot' xmlUrl='https://byroot.github.io/feed.xml'/>
     <outline type='rss' text='Carmine Paolino' title='Carmine Paolino' xmlUrl='https://paolino.me/feed.xml'/>
     <outline type='rss' text='Charles Oliver Nutter' title='Charles Oliver Nutter' xmlUrl='https://blog.headius.com/feed.xml'/>
     <outline type='rss' text='Closer to Code' title='Closer to Code' xmlUrl='https://mensfeld.pl/feed/'/>
-    <outline type='rss' text='code.dblock.org' title='code.dblock.org' xmlUrl='https://code.dblock.org/feed.xml'/>
     <outline type='rss' text='Code Otaku' title='Code Otaku' xmlUrl='https://www.codeotaku.com/journal/atom'/>
     <outline type='rss' text='Code With Rails' title='Code With Rails' xmlUrl='https://codewithrails.com/rss.xml'/>
+    <outline type='rss' text='code.dblock.org' title='code.dblock.org' xmlUrl='https://code.dblock.org/feed.xml'/>
     <outline type='rss' text='Daniel Abaron' title='Daniel Abaron' xmlUrl='https://danielabaron.me/rss.xml'/>
+    <outline type='rss' text='David Bryant Copeland' title='David Bryant Copeland' xmlUrl='https://naildrivin5.com/atom.xml'/>
     <outline type='rss' text='David Celis' title='David Celis' xmlUrl='https://davidcel.is/feeds/articles'/>
     <outline type='rss' text='Depfu' title='Depfu' xmlUrl='https://depfu.com/blog/feed.xml'/>
-    <outline type='rss' text='Brandon Weaver' title='Brandon Weaver' xmlUrl='https://dev.to/feed/baweaver'/>
-    <outline type='rss' text='Doctolib' title='Doctolib' xmlUrl='https://dev.to/feed/doctolib'/>
-    <outline type='rss' text='Doctolib' title='Doctolib' xmlUrl='https://dev.to/feed/doctolib'/>
-    <outline type='rss' text='Masataka Pocke Kuwabara' title='Masataka Pocke Kuwabara' xmlUrl='https://dev.to/feed/pocke'/>
-    <outline type='rss' text='Truemark Technology' title='Truemark Technology' xmlUrl='https://dev.to/feed/truemark'/>
     <outline type='rss' text='Dimiter Petrov' title='Dimiter Petrov' xmlUrl='https://dimiterpetrov.com/blog/feed.xml'/>
     <outline type='rss' text='Dmitry Tsepelev' title='Dmitry Tsepelev' xmlUrl='https://dmitrytsepelev.dev/feed.xml'/>
+    <outline type='rss' text='Doctolib' title='Doctolib' xmlUrl='https://dev.to/feed/doctolib'/>
+    <outline type='rss' text='Dogweather' title='Dogweather' xmlUrl='https://dogweather.dev/feed/?tag=ruby'/>
     <outline type='rss' text='Dom Christie' title='Dom Christie' xmlUrl='https://domchristie.co.uk/feed.xml'/>
     <outline type='rss' text='DotRuby' title='DotRuby' xmlUrl='https://www.dotruby.com/articles.atom'/>
     <outline type='rss' text='Drifting Ruby' title='Drifting Ruby' xmlUrl='https://www.driftingruby.com/episodes/feed.atom'/>
     <outline type='rss' text='dry-rb news' title='dry-rb news' xmlUrl='https://dry-rb.org/feed.xml'/>
+    <outline type='rss' text='Eregon' title='Eregon' xmlUrl='https://eregon.me/blog/feed.xml'/>
     <outline type='rss' text='Evil Martians' title='Evil Martians' xmlUrl='https://evilmartians.com/chronicles.atom'/>
     <outline type='rss' text='Felipe Vogel' title='Felipe Vogel' xmlUrl='https://fpsvogel.com/feed.xml'/>
     <outline type='rss' text='Fractaled Mind' title='Fractaled Mind' xmlUrl='https://fractaledmind.com/feed.xml'/>
     <outline type='rss' text='Fullstack Ruby' title='Fullstack Ruby' xmlUrl='https://www.fullstackruby.dev/feed.xml'/>
     <outline type='rss' text='Garrett Dimon' title='Garrett Dimon' xmlUrl='https://garrettdimon.com/feed/posts'/>
-    <outline type='rss' text='Thoughtbot' title='Thoughtbot' xmlUrl='https://thoughtbot.com/blog/ruby/feed'/>
+    <outline type='rss' text='Get Talong' title='Get Talong' xmlUrl='https://gettalong.org/posts.atom'/>
     <outline type='rss' text='Glauco Custodio' title='Glauco Custodio' xmlUrl='https://glaucocustodio.github.io/feed.xml'/>
-    <outline type='rss' text='GoRails' title='GoRails' xmlUrl='https://gorails.com/blog.rss'/>
     <outline type='rss' text='GoRails' title='GoRails' xmlUrl='https://gorails.com/episodes.rss'/>
+    <outline type='rss' text='GoRails' title='GoRails' xmlUrl='https://gorails.com/blog.rss'/>
     <outline type='rss' text='Graceful.Dev' title='Graceful.Dev' xmlUrl='https://graceful.dev/feed/'/>
     <outline type='rss' text='Greg Molnar' title='Greg Molnar' xmlUrl='https://greg.molnar.io/feed.xml'/>
     <outline type='rss' text='Gusto Engineering' title='Gusto Engineering' xmlUrl='https://medium.com/feed/gusto-engineering'/>
     <outline type='rss' text='Hanami' title='Hanami' xmlUrl='https://hanamirb.org/atom.xml'/>
     <outline type='rss' text='Hanami Mastery' title='Hanami Mastery' xmlUrl='https://hanamimastery.com/feed.xml'/>
     <outline type='rss' text='Hashrocket' title='Hashrocket' xmlUrl='https://hashrocket.com/blog/tags/ruby.rss'/>
-    <outline type='rss' text='Richard Schneeman' title='Richard Schneeman' xmlUrl='https://blog.heroku.com/authors/richard-schneeman/feed'/>
     <outline type='rss' text='Hexdevs' title='Hexdevs' xmlUrl='https://www.hexdevs.com/index.xml'/>
-    <outline type='rss' text='Arkency' title='Arkency' xmlUrl='https://feeds.feedburner.com/arkency.xml'/>
     <outline type='rss' text='Honey Ryder' title='Honey Ryder' xmlUrl='https://honeyryderchuck.gitlab.io/feed.xml'/>
     <outline type='rss' text='Hongli Lai' title='Hongli Lai' xmlUrl='https://www.joyfulbikeshedding.com/feed.xml'/>
     <outline type='rss' text='Hotwire Weekly' title='Hotwire Weekly' xmlUrl='https://buttondown.email/hotwireweekly/rss'/>
@@ -71,20 +73,25 @@
     <outline type='rss' text='Jardo' title='Jardo' xmlUrl='https://jardo.dev/blog.xml'/>
     <outline type='rss' text='Jekyll' title='Jekyll' xmlUrl='https://jekyllrb.com/feed.xml'/>
     <outline type='rss' text='John Hawthorn' title='John Hawthorn' xmlUrl='https://www.johnhawthorn.com/atom.xml'/>
+    <outline type='rss' text='John Nunemaker' title='John Nunemaker' xmlUrl='https://www.johnnunemaker.com/rss/'/>
     <outline type='rss' text='John Nunemaker' title='John Nunemaker' xmlUrl='https://feeds.feedburner.com/johnnunemakercom'/>
     <outline type='rss' text='Josh Software' title='Josh Software' xmlUrl='https://blog.joshsoftware.com/feed/'/>
     <outline type='rss' text='Joy of Rails' title='Joy of Rails' xmlUrl='https://joyofrails.com/feed'/>
     <outline type='rss' text='JRuby' title='JRuby' xmlUrl='https://www.jruby.org/atom.xml'/>
+    <outline type='rss' text='JRuby' title='JRuby' xmlUrl='https://blog.jruby.org/feed'/>
     <outline type='rss' text='Julia Evans' title='Julia Evans' xmlUrl='https://jvns.ca/atom.xml'/>
     <outline type='rss' text='Julik Tarkhanov' title='Julik Tarkhanov' xmlUrl='https://blog.julik.nl/feed.atom.xml'/>
     <outline type='rss' text='Justin Searls' title='Justin Searls' xmlUrl='https://justin.searls.co/digest.xml'/>
     <outline type='rss' text='Karl' title='Karl' xmlUrl='https://www.karlentwistle.com/feed.xml'/>
     <outline type='rss' text='Karol Galanciak' title='Karol Galanciak' xmlUrl='https://karolgalanciak.com/atom.xml'/>
     <outline type='rss' text='Katafrakt' title='Katafrakt' xmlUrl='http://katafrakt.me/feed.xml'/>
+    <outline type='rss' text='Kevin J Murphy' title='Kevin J Murphy' xmlUrl='https://kevinjmurphy.com/index.xml'/>
+    <outline type='rss' text='Kevin Murphy' title='Kevin Murphy' xmlUrl='https://kevinjmurphy.com/posts/index.xml'/>
     <outline type='rss' text='KevinNewton' title='KevinNewton' xmlUrl='https://kddnewton.com/feed.xml'/>
     <outline type='rss' text='Kukicola' title='Kukicola' xmlUrl='https://kukicola.io/feed.xml'/>
     <outline type='rss' text='Left of the Dev' title='Left of the Dev' xmlUrl='https://feeds.feedburner.com/EverydayRails'/>
     <outline type='rss' text='Lucas Dohmen' title='Lucas Dohmen' xmlUrl='https://lucas.dohmen.io/feed.xml'/>
+    <outline type='rss' text='Masataka Pocke Kuwabara' title='Masataka Pocke Kuwabara' xmlUrl='https://dev.to/feed/pocke'/>
     <outline type='rss' text='Matt Brictson' title='Matt Brictson' xmlUrl='https://mattbrictson.com/blog.atom'/>
     <outline type='rss' text='Matt Stuchlik' title='Matt Stuchlik' xmlUrl='https://blog.mattstuchlik.com/feed.xml'/>
     <outline type='rss' text='Matz' title='Matz' xmlUrl='https://matz.rubyist.net/index.rdf'/>
@@ -93,83 +100,85 @@
     <outline type='rss' text='Mike Coutermarsh' title='Mike Coutermarsh' xmlUrl='https://www.mikecoutermarsh.com/rss/'/>
     <outline type='rss' text='Mike Perham' title='Mike Perham' xmlUrl='https://www.mikeperham.com/index.xml'/>
     <outline type='rss' text='Mintbit' title='Mintbit' xmlUrl='https://www.mintbit.com/feed.xml'/>
-    <outline type='rss' text='David Bryant Copeland' title='David Bryant Copeland' xmlUrl='https://naildrivin5.com/atom.xml'/>
     <outline type='rss' text='Nithin Bekal' title='Nithin Bekal' xmlUrl='https://nithinbekal.com/feed/ruby.xml'/>
+    <outline type='rss' text='Noel Rappin' title='Noel Rappin' xmlUrl='https://noelrappin.com//blog/index.xml'/>
     <outline type='rss' text='Noteflakes' title='Noteflakes' xmlUrl='https://noteflakes.com/feeds/rss'/>
-    <outline type='rss' text='Strzibny' title='Strzibny' xmlUrl='https://nts.strzibny.name/feed.xml'/>
     <outline type='rss' text='OkayFail' title='OkayFail' xmlUrl='https://okayfail.com/tags/tech/atom.xml'/>
     <outline type='rss' text='Olivier Lacan' title='Olivier Lacan' xmlUrl='https://feed.olivierlacan.com/'/>
     <outline type='rss' text='OmbuLabs' title='OmbuLabs' xmlUrl='https://www.ombulabs.ai/blog/rss.xml'/>
     <outline type='rss' text='Once a Maintainer' title='Once a Maintainer' xmlUrl='https://onceamaintainer.substack.com/feed'/>
-    <outline type='rss' text='Eregon' title='Eregon' xmlUrl='https://eregon.me/blog/feed.xml'/>
     <outline type='rss' text='Passenger' title='Passenger' xmlUrl='https://blog.phusion.nl/tag/passenger/rss/'/>
-    <outline type='rss' text='Pat Shaughnessy' title='Pat Shaughnessy' xmlUrl='https://feeds.feedburner.com/patshaughnessy'/>
+    <outline type='rss' text='Pat Shaughnessy' title='Pat Shaughnessy' xmlUrl='https://patshaughnessy.net/index.xml'/>
+    <outline type='rss' text='Pawel Urbanek' title='Pawel Urbanek' xmlUrl='https://pawelurbanek.com/feed.xml'/>
     <outline type='rss' text='Peter Zhu' title='Peter Zhu' xmlUrl='https://blog.peterzhu.ca/feed.xml'/>
     <outline type='rss' text='Petr Hlavicka' title='Petr Hlavicka' xmlUrl='https://petr.codes/feed.xml'/>
+    <outline type='rss' text='PJAM' title='PJAM' xmlUrl='https://blog.pjam.me/tags/ruby/index.xml'/>
     <outline type='rss' text='Planet Argon' title='Planet Argon' xmlUrl='https://blog.planetargon.com/blog/entries.rss'/>
-    <outline type='rss' text='Get Talong' title='Get Talong' xmlUrl='https://gettalong.org/posts.atom'/>
-    <outline type='rss' text='Kevin Murphy' title='Kevin Murphy' xmlUrl='https://kevinjmurphy.com/posts/index.xml'/>
+    <outline type='rss' text='Pragtob' title='Pragtob' xmlUrl='https://pragtob.wordpress.com/feed/?s=ruby'/>
     <outline type='rss' text='Radan Skorić' title='Radan Skorić' xmlUrl='https://radanskoric.com/feed.xml'/>
     <outline type='rss' text='Rails at Scale' title='Rails at Scale' xmlUrl='https://railsatscale.com/feed.xml'/>
     <outline type='rss' text='Rails Blocks' title='Rails Blocks' xmlUrl='https://railsblocks.com/feeds/documentation.xml'/>
-    <outline type='rss' text='RailsCarma' title='RailsCarma' xmlUrl='https://www.railscarma.com/feed/'/>
     <outline type='rss' text='Rails Designer' title='Rails Designer' xmlUrl='https://railsdesigner.com/feed.xml'/>
+    <outline type='rss' text='Rails Tech Debt' title='Rails Tech Debt' xmlUrl='https://www.fastruby.io/blog/rss.xml'/>
+    <outline type='rss' text='RailsCarma' title='RailsCarma' xmlUrl='https://www.railscarma.com/feed/'/>
     <outline type='rss' text='RailsNotes' title='RailsNotes' xmlUrl='https://railsnotes.xyz/feed.xml'/>
-    <outline type='rss' text='Pawel Urbanek' title='Pawel Urbanek' xmlUrl='https://pawelurbanek.com/feed.xml'/>
-    <outline type='rss' text='Rémi Mercier' title='Rémi Mercier' xmlUrl='https://remimercier.com/feed.xml'/>
     <outline type='rss' text='Remote Ruby' title='Remote Ruby' xmlUrl='https://rss.buzzsprout.com/2260490.rss'/>
+    <outline type='rss' text='Richard Schneeman' title='Richard Schneeman' xmlUrl='https://blog.heroku.com/authors/richard-schneeman/feed'/>
     <outline type='rss' text='Robby' title='Robby' xmlUrl='https://robbyonrails.com/feed.xml'/>
     <outline type='rss' text='RoRvsWild' title='RoRvsWild' xmlUrl='https://www.rorvswild.com/blog.rss'/>
-    <outline type='rss' text='AWS Developer Tools' title='AWS Developer Tools' xmlUrl='https://aws.amazon.com/blogs/developer/category/programing-language/ruby/feed/'/>
-    <outline type='rss' text='Bibliographic Wilderness' title='Bibliographic Wilderness' xmlUrl='https://bibwild.wordpress.com/feed/?tag=ruby'/>
     <outline type='rss' text='Ruby Central' title='Ruby Central' xmlUrl='https://rubycentral.org/news/rss/'/>
+    <outline type='rss' text='Ruby Central YouTube' title='Ruby Central YouTube' xmlUrl='https://www.youtube.com/feeds/videos.xml?channel_id=UCpFXaEz3vKJ45XjW5m5pbow'/>
     <outline type='rss' text='Ruby Changes' title='Ruby Changes' xmlUrl='https://rubyreferences.github.io/rubychanges/feed.xml'/>
-    <outline type='rss' text='Dogweather' title='Dogweather' xmlUrl='https://dogweather.dev/feed/?tag=ruby'/>
+    <outline type='rss' text='Ruby News' title='Ruby News' xmlUrl='https://www.ruby-lang.org/en/feeds/news.rss'/>
+    <outline type='rss' text='Ruby on Rails' title='Ruby on Rails' xmlUrl='https://rubyonrails.org/feed.xml'/>
+    <outline type='rss' text='Ruby on Rails Podcast' title='Ruby on Rails Podcast' xmlUrl='http://feeds.5by5.tv/rubyonrails'/>
+    <outline type='rss' text='Ruby Rogues' title='Ruby Rogues' xmlUrl='https://www.spreaker.com/show/6102073/episodes/feed'/>
+    <outline type='rss' text='Ruby Stack News' title='Ruby Stack News' xmlUrl='https://rubystacknews.com/category/weelkly-article/feed/'/>
+    <outline type='rss' text='Ruby Weekly' title='Ruby Weekly' xmlUrl='http://rubyweekly.com/rss/12nfj9m4'/>
     <outline type='rss' text='RubyGems Blog' title='RubyGems Blog' xmlUrl='https://blog.rubygems.org/atom.xml'/>
     <outline type='rss' text='RubyGuides' title='RubyGuides' xmlUrl='https://www.rubyguides.com/feed/'/>
-    <outline type='rss' text='AppSignal' title='AppSignal' xmlUrl='https://blog.appsignal.com/ruby-magic-feed.xml'/>
     <outline type='rss' text='RubyMine' title='RubyMine' xmlUrl='https://feeds.feedburner.com/jetbrains_rubymine?format=xml'/>
-    <outline type='rss' text='Ruby News' title='Ruby News' xmlUrl='https://www.ruby-lang.org/en/feeds/news.rss'/>
-    <outline type='rss' text='PJAM' title='PJAM' xmlUrl='https://blog.pjam.me/tags/ruby/index.xml'/>
-    <outline type='rss' text='Ruby on Rails' title='Ruby on Rails' xmlUrl='https://rubyonrails.org/feed.xml'/>
-    <outline type='rss' text='Ruby Rogues' title='Ruby Rogues' xmlUrl='https://www.spreaker.com/show/6102073/episodes/feed'/>
     <outline type='rss' text='RubySec' title='RubySec' xmlUrl='https://rubysec.com/atom.xml'/>
-    <outline type='rss' text='Ruby Weekly' title='Ruby Weekly' xmlUrl='http://rubyweekly.com/rss/12nfj9m4'/>
     <outline type='rss' text='Ryan Bigg' title='Ryan Bigg' xmlUrl='https://feeds.feedburner.com/ryanbigg'/>
+    <outline type='rss' text='Rémi Mercier' title='Rémi Mercier' xmlUrl='https://remimercier.com/feed.xml'/>
     <outline type='rss' text='Saeloun' title='Saeloun' xmlUrl='https://blog.saeloun.com/feed.xml'/>
     <outline type='rss' text='Sam Saffron' title='Sam Saffron' xmlUrl='https://discuss.samsaffron.com/posts.rss'/>
     <outline type='rss' text='Samuel Giddins' title='Samuel Giddins' xmlUrl='https://blog.segiddins.me/rss'/>
+    <outline type='rss' text='Schembri' title='Schembri' xmlUrl='https://schembri.me/rss'/>
     <outline type='rss' text='Schneems' title='Schneems' xmlUrl='https://www.schneems.com/feed.xml'/>
-    <outline type='rss' text='Pragtob' title='Pragtob' xmlUrl='https://pragtob.wordpress.com/feed/?s=ruby'/>
     <outline type='rss' text='Sinaptia' title='Sinaptia' xmlUrl='https://sinaptia.dev/feed.xml'/>
     <outline type='rss' text='Stanko Krtalic Rusendic' title='Stanko Krtalic Rusendic' xmlUrl='https://stanko.io/articles/atom'/>
     <outline type='rss' text='Stefan Wienert' title='Stefan Wienert' xmlUrl='https://www.stefanwienert.de/feed.xml'/>
     <outline type='rss' text='Steven Harman' title='Steven Harman' xmlUrl='https://stevenharman.net/feed.xml'/>
-    <outline type='rss' text='Ali Sepehri' title='Ali Sepehri' xmlUrl='https://alisepehri.medium.com/feed'/>
+    <outline type='rss' text='Strzibny' title='Strzibny' xmlUrl='https://nts.strzibny.name/feed.xml'/>
     <outline type='rss' text='Tejas' title='Tejas' xmlUrl='https://tejasbubane.github.io/atom.xml'/>
     <outline type='rss' text='Tekin' title='Tekin' xmlUrl='https://tekin.co.uk/atom.xml'/>
     <outline type='rss' text='Tenderlove' title='Tenderlove' xmlUrl='https://tenderlovemaking.com/atom.xml'/>
     <outline type='rss' text='Test Double' title='Test Double' xmlUrl='https://blog.testdouble.com/index.xml'/>
-    <outline type='rss' text='The Amazing' title='The Amazing' xmlUrl='http://blog.theamazingrando.com/feed.xml'/>
+    <outline type='rss' text='The Amazing Blog' title='The Amazing Blog' xmlUrl='http://blog.theamazingrando.com/feed.xml'/>
     <outline type='rss' text='The Bike Shed' title='The Bike Shed' xmlUrl='https://feeds.simplecast.com/ky3kewHN'/>
     <outline type='rss' text='The Code Gardener' title='The Code Gardener' xmlUrl='https://the.codegardener.com/rss/'/>
-    <outline type='rss' text='JRuby' title='JRuby' xmlUrl='https://blog.jruby.org/feed'/>
     <outline type='rss' text='The Rails Changelog' title='The Rails Changelog' xmlUrl='https://feeds.transistor.fm/the-rails-changelog'/>
-    <outline type='rss' text='Rails Tech Debt' title='Rails Tech Debt' xmlUrl='https://www.fastruby.io/blog/rss.xml'/>
     <outline type='rss' text='The Ruby Dispatch' title='The Ruby Dispatch' xmlUrl='https://fly.io/ruby-dispatch/feed.xml'/>
-    <outline type='rss' text='Ruby on Rails Podcast' title='Ruby on Rails Podcast' xmlUrl='http://feeds.5by5.tv/rubyonrails'/>
+    <outline type='rss' text='Thoughtbot' title='Thoughtbot' xmlUrl='https://thoughtbot.com/blog/ruby/feed'/>
     <outline type='rss' text='Tim Riley' title='Tim Riley' xmlUrl='https://timriley.info/posts_feed'/>
     <outline type='rss' text='Tom Dalling' title='Tom Dalling' xmlUrl='https://www.tomdalling.com/blog/feed/'/>
     <outline type='rss' text='Tosbourn' title='Tosbourn' xmlUrl='https://tosbourn.com/ruby.xml'/>
     <outline type='rss' text='Toxic Elephant' title='Matijs' xmlUrl='https://www.matijs.net/blog/articles.atom'/>
+    <outline type='rss' text='Truemark Technology' title='Truemark Technology' xmlUrl='https://dev.to/feed/truemark'/>
     <outline type='rss' text='Wasabigeek' title='Wasabigeek' xmlUrl='https://wasabigeek.com/rss.xml'/>
-    <outline type='rss' text='Ruby Stack News' title='Ruby Stack News' xmlUrl='https://rubystacknews.com/category/weelkly-article/feed/'/>
     <outline type='rss' text='With a Twist' title='With a Twist' xmlUrl='https://withatwist.dev/feed.xml'/>
     <outline type='rss' text='Write Software, Well' title='Write Software, Well' xmlUrl='https://www.writesoftwarewell.com/rss/'/>
     <outline type='rss' text='Zverok' title='Zverok' xmlUrl='https://zverok.space/feed.xml'/>
-    <outline type='rss' text='Schembri' title='Schembri' xmlUrl='https://schembri.me/rss'/>
-    <outline type='rss' text='Ruby Central YouTube' title='Ruby Central YouTube' xmlUrl='https://www.youtube.com/feeds/videos.xml?channel_id=UCpFXaEz3vKJ45XjW5m5pbow'/>
-    <outline type='rss' text='Kevin J Murphy' title='Kevin J Murphy' xmlUrl='https://kevinjmurphy.com/index.xml'/>
-    <outline type='rss' text='John Nunemaker' title='John Nunemaker' xmlUrl='https://www.johnnunemaker.com/rss/'/>
+    <outline type='rss' text='Honeybadger' title='Honeybadger' xmlUrl='https://www.honeybadger.io/blog/feed.xml'/>
+    <outline type='rss' text='Heroku' title='Heroku' xmlUrl='https://www.heroku.com/blog/feed/'/>
+    <outline type='rss' text='Joel Drapper' title='Joel Drapper' xmlUrl='https://joel.drapper.me/rss.xml'/>
+    <outline type='rss' text='All About Coding' title='All About Coding' xmlUrl='https://allaboutcoding.ghinda.com/rss.xml'/>
+    <outline type='rss' text='Deployment from Scratch' title='Deployment from Scratch' xmlUrl='https://deploymentfromscratch.com/blog/feed.xml'/>
+    <outline type='rss' text='GitLab Blog' title='GitLab Blog' xmlUrl='https://about.gitlab.com/atom.xml'/>
+    <outline type='rss' text='Test Driving Rails' title='Test Driving Rails' xmlUrl='https://testdrivingrails.com/blog/feed.xml'/>
+    <outline type='rss' text='Joe Masilotti' title='Joe Masilotti' xmlUrl='https://newsletter.masilotti.com/feed'/>
+    <outline type='rss' text='Kuba Suder' title='Kuba Suder' xmlUrl='https://mackuba.eu/feed.xml'/>
+    <outline type='rss' text='Sam Ruby' title='Sam Ruby' xmlUrl='https://intertwingly.net/blog/index.atom'/>
   </body>
 </opml>
