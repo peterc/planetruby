@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Planet Ruby</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ruby: oklch(0.45 0.22 18);
+      --ruby-bright: oklch(0.55 0.24 20);
+      --ruby-deep: oklch(0.30 0.18 15);
+      --ruby-glow: oklch(0.65 0.20 22);
+      --surface: oklch(0.97 0.005 60);
+      --surface-warm: oklch(0.94 0.01 55);
+      --ink: oklch(0.20 0.02 50);
+      --ink-soft: oklch(0.45 0.02 50);
+      --ink-faint: oklch(0.60 0.015 50);
+      --divider: oklch(0.88 0.01 55);
+      --cream: oklch(0.99 0.008 80);
+    }
+
+    @supports not (color: oklch(0.5 0.2 0)) {
+      :root {
+        --ruby: #8b1a1a;
+        --ruby-bright: #b22222;
+        --ruby-deep: #4a0e0e;
+        --ruby-glow: #d4524d;
+        --surface: #f5f0eb;
+        --surface-warm: #ebe5de;
+        --ink: #2a2420;
+        --ink-soft: #6b6058;
+        --ink-faint: #8a8078;
+        --divider: #d8d0c8;
+        --cream: #faf8f5;
+      }
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--ruby-deep);
+      color: var(--cream);
+      padding: 0.5rem 1rem;
+      border-radius: 0 0 4px 4px;
+      z-index: 100;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--ruby-bright);
+      outline-offset: 2px;
+    }
+
+    body {
+      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--surface);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---- HEADER ---- */
+
+    header {
+      background: var(--ruby-deep);
+      color: var(--cream);
+      padding: 1.25rem 0;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(
+        90deg,
+        var(--ruby-deep) 0%,
+        var(--ruby-bright) 30%,
+        var(--ruby-glow) 60%,
+        var(--ruby-bright) 100%
+      );
+    }
+
+    .header-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    header h1 {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    header p {
+      font-size: 0.85rem;
+      opacity: 0.5;
+    }
+
+    /* ---- MAIN CONTENT ---- */
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3rem) clamp(3rem, 6vw, 6rem);
+    }
+
+    /* ---- DATE GROUPS ---- */
+
+    .date-group {
+      margin-bottom: clamp(3rem, 5vw, 5rem);
+    }
+
+    .date-heading {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-weight: 500;
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      color: var(--ruby);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      position: relative;
+    }
+
+    .date-heading .date-sub {
+      font-size: 0.65em;
+      font-weight: 600;
+      color: var(--ink-faint);
+      letter-spacing: 0;
+      margin-left: 0.3em;
+      vertical-align: baseline;
+    }
+
+    .date-heading::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: clamp(180px, 50%, 350px);
+      height: 16px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 16' preserveAspectRatio='none'%3E%3Cpath d='M3 15 Q150 2 400 5 Q150 1 3 10 Q0 12.5 3 15 Z' fill='%23b22222'/%3E%3C/svg%3E") no-repeat left center;
+      background-size: 100% 100%;
+    }
+
+    /* ---- ITEMS ---- */
+
+    .item {
+      display: grid;
+      grid-template-columns: minmax(auto, 185px) 1fr;
+      gap: 0 clamp(1rem, 2vw, 1.5rem);
+      padding: clamp(1rem, 2vw, 1.5rem) 0;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .item.score-9,
+    .item.score-10 {
+      background: oklch(0.95 0.045 20 / 0.55);
+    }
+
+    .item:last-child {
+      border-bottom: none;
+    }
+
+    .item-source-badge {
+      grid-row: 1 / 3;
+      align-self: start;
+      margin-top: 0.15rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ruby);
+      text-decoration: none;
+      background: var(--cream);
+      border: 2px solid var(--ruby);
+      padding: 0.3em 0.7em;
+      line-height: 1.4;
+    }
+
+    .item-source-badge:hover {
+      background: var(--ruby);
+      color: var(--cream);
+    }
+
+    .item-source-badge img {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      border-radius: 2px;
+    }
+
+    .item-body {
+      min-width: 0;
+    }
+
+    .item-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6em;
+      flex-wrap: wrap;
+    }
+
+    .item-title {
+      text-wrap: pretty;
+    }
+
+    .item-title a {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+      line-height: 1.35;
+      transition: color 0.15s ease;
+    }
+
+    .item-title a:hover {
+      color: var(--ruby-bright);
+    }
+
+    .item-excerpt {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 1.05rem;
+      color: var(--ink);
+      margin-top: 0.35rem;
+      line-height: 1.55;
+      max-width: 100%;
+    }
+
+    .item-excerpt code {
+      font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.9em;
+      background: var(--surface-warm);
+      padding: 0.15em 0.35em;
+      border-radius: 3px;
+    }
+
+    /* ---- FOOTER ---- */
+
+    footer {
+      background: var(--ruby-deep);
+      color: var(--cream);
+      padding: clamp(2rem, 4vw, 3rem) 0;
+      position: relative;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(
+        90deg,
+        var(--ruby-bright) 0%,
+        var(--ruby-glow) 50%,
+        var(--ruby-bright) 100%
+      );
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .footer-meta {
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+
+    /* ---- RESPONSIVE ---- */
+
+    @media (max-width: 640px) {
+      .item {
+        grid-template-columns: 1fr;
+        gap: 0.4rem 0;
+      }
+
+      .item-source-badge {
+        grid-row: auto;
+        justify-self: start;
+        margin-bottom: 0.2rem;
+      }
+
+      .item.score-9,
+      .item.score-10 {
+        margin-left: calc(-1 * clamp(1.5rem, 4vw, 3rem));
+        margin-right: calc(-1 * clamp(1.5rem, 4vw, 3rem));
+        padding-left: clamp(1.5rem, 4vw, 3rem);
+        padding-right: clamp(1.5rem, 4vw, 3rem);
+      }
+
+      .date-heading {
+        font-size: 1.6rem;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header role="banner">
+    <div class="header-inner">
+      <h1>Planet Ruby</h1>
+      <p>Voices from across the Ruby community</p>
+    </div>
+  </header>
+
+  <main id="content" role="main" aria-label="Articles">
+    <% grouped_items.each do |date_label, items| %>
+      <section class="date-group" aria-label="<%= h(date_label[0]) %> <%= h(date_label[1]) %>">
+        <h2 class="date-heading"><%= date_label[0] %> <span class="date-sub"><%= date_label[1] %></span></h2>
+        <% items.each do |item| %>
+          <article class="item score-<%= item["score"] || 5 %>">
+            <% badge_url = item["source_url"].to_s.empty? ? "https://#{domain_for(item["url"])}" : item["source_url"] %>
+            <a class="item-source-badge" href="<%= h(badge_url) %>" aria-label="Visit <%= h(item["source"]) %>"><img src="https://www.google.com/s2/favicons?domain=<%= h(domain_for(item["url"])) %>&sz=64" alt="" width="18" height="18"><%= h(item["source"]) %></a>
+            <div class="item-body">
+              <div class="item-header">
+                <h3 class="item-title">
+                  <a href="<%= h(item["url"]) %>"><%= h(item["title"]) %></a>
+                </h3>
+              </div>
+              <% unless item["excerpt"].to_s.empty? %>
+                <p class="item-excerpt"><%= inline_markdown(item["excerpt"]) %></p>
+              <% end %>
+            </div>
+          </article>
+        <% end %>
+      </section>
+    <% end %>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">Planet Ruby</div>
+      <div class="footer-meta">
+        Generated <time datetime="<%= Time.now.utc.iso8601 %>"><%= Time.now.utc.strftime("%B %-d, %Y at %H:%M UTC") %></time>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
