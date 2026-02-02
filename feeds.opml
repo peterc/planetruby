@@ -5,6 +5,7 @@
     <dateCreated>Sun, 01 Feb 2026 14:17:32 GMT</dateCreated>
   </head>
   <body>
+    <outline type='rss' text='Short Ruby News' title='Short Ruby News' xmlUrl='https://rss.beehiiv.com/feeds/X67SCnFvlW.xml'/>
     <outline type='rss' text='37signals' title='37signals' xmlUrl='https://dev.37signals.com/feed/posts.xml'/>
     <outline type='rss' text='A Chacon' title='A Chacon' xmlUrl='https://a-chacon.com/en/feed.xml'/>
     <outline type='rss' text='Aha! Engineering' title='Aha! Engineering' xmlUrl='https://www.aha.io/engineering/rss.xml'/>
