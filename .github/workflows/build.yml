@@ -33,6 +33,7 @@ jobs:
           key: items-data-${{ github.run_id }}
           restore-keys: |
             items-data-
+            items-data
 
       - name: Fetch feeds
         run: ruby fetch.rb
