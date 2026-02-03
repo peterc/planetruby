@@ -129,9 +129,10 @@ end
 # Fill in every day from today back to the cutoff date
 today = Time.now.utc.to_date
 cutoff_date = (Time.now.utc - 30 * 86_400).to_date
-grouped_items = (cutoff_date..today).to_a.reverse.map do |date|
-  label = date_label(date.iso8601)
+grouped_items = (cutoff_date..today).to_a.reverse.filter_map do |date|
   day_items = items_by_date[date] || []
+  next if date == today && day_items.empty? # more items may still appear today
+  label = date_label(date.iso8601)
   [label, day_items]
 end
 

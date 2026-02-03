@@ -30,7 +30,9 @@ jobs:
           path: |
             data/items.json
             data/etags.json
-          key: items-data
+          key: items-data-${{ github.run_id }}
+          restore-keys: |
+            items-data-
 
       - name: Fetch feeds
         run: ruby fetch.rb
