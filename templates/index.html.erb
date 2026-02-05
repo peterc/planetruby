@@ -176,7 +176,7 @@
       display: flex;
       align-items: center;
       gap: 0.4em;
-      font-size: 0.78rem;
+      font-size: 0.92rem;
       color: var(--ink-faint);
       cursor: pointer;
       user-select: none;
@@ -445,7 +445,7 @@
 
   <div class="toolbar">
     <label class="toggle">
-      <input type="checkbox" id="show-excerpts" checked>
+      <input type="checkbox" id="show-excerpts">
       <span>Show summaries</span>
     </label>
   </div>
@@ -490,9 +490,11 @@
     (function() {
       var cb = document.getElementById("show-excerpts");
       var saved = localStorage.getItem("show-excerpts");
-      if (saved === "false") {
+      if (saved !== "true") {
         cb.checked = false;
         document.body.classList.add("hide-excerpts");
+      } else {
+        cb.checked = true;
       }
       cb.addEventListener("change", function() {
         document.body.classList.toggle("hide-excerpts", !cb.checked);
