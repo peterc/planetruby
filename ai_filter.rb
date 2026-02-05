@@ -117,7 +117,7 @@ FORCE = ARGV.include?("--force")
 
 if FORCE
   puts "Force mode: reprocessing all items"
-  items.each { |item| item.delete("ai_filtered"); item.delete("score") }
+  items.each { |item| item.delete("ai_filtered"); item.delete("score"); item.delete("relevant") }
 end
 
 to_process = items.reject { |item| item["ai_filtered"] }
@@ -151,7 +151,8 @@ threads = THREAD_COUNT.times.map do
             item["ai_filtered"] = true
             puts "#{prefix}KEEP (#{result["score"]}/10)"
           else
-            items.delete(item)
+            item["ai_filtered"] = true
+            item["relevant"] = false
             puts "#{prefix}REMOVE"
           end
           File.write(DATA_FILE, JSON.pretty_generate(items))

@@ -105,9 +105,9 @@ end
 
 all_items = JSON.parse(File.read(DATA_FILE))
 
-# Only include items from the last 30 days
+# Only include items from the last 30 days that weren't rejected by AI
 cutoff = (Time.now.utc - 30 * 86_400).iso8601
-items = all_items.select { |item| item["published"] >= cutoff }
+items = all_items.select { |item| item["published"] >= cutoff && item["relevant"] != false }
 
 QUIET_DAY_MESSAGES = [
   "Ruby land was quiet today.",
