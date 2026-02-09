@@ -131,6 +131,7 @@ today = Time.now.utc.to_date
 cutoff_date = (Time.now.utc - 30 * 86_400).to_date
 grouped_items = (cutoff_date..today).to_a.reverse.filter_map do |date|
   day_items = items_by_date[date] || []
+  day_items.sort_by! { |item| item["published"] }.reverse!
   next if date == today && day_items.empty? # more items may still appear today
   label = date_label(date.iso8601)
   [label, day_items]
