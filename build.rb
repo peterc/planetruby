@@ -145,4 +145,7 @@ FileUtils.mkdir_p(OUTPUT_DIR)
 File.write(OUTPUT_FILE, html)
 File.write(File.join(OUTPUT_DIR, "CNAME"), "planetruby.org\n")
 
+icon_path = File.join(OUTPUT_DIR, "favicon.ico")
+FileUtils.cp(File.join(TEMPLATE_DIR, "favicon.ico"), icon_path)
+
 puts "Rendered #{items.length} items into #{OUTPUT_FILE}"
