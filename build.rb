@@ -141,11 +141,18 @@ template_path = File.join(TEMPLATE_DIR, "index.html.erb")
 template = ERB.new(File.read(template_path), trim_mode: "-")
 html = template.result(binding)
 
+feed_items = items.sort_by { |item| item["published"] }.reverse.first(50)
+feed_template_path = File.join(TEMPLATE_DIR, "feed.xml.erb")
+feed_template = ERB.new(File.read(feed_template_path), trim_mode: "-")
+feed_xml = feed_template.result(binding)
+
 FileUtils.mkdir_p(OUTPUT_DIR)
 File.write(OUTPUT_FILE, html)
+File.write(File.join(OUTPUT_DIR, "feed.xml"), feed_xml)
 File.write(File.join(OUTPUT_DIR, "CNAME"), "planetruby.org\n")
 
 icon_path = File.join(OUTPUT_DIR, "favicon.ico")
 FileUtils.cp(File.join(TEMPLATE_DIR, "favicon.ico"), icon_path)
 
 puts "Rendered #{items.length} items into #{OUTPUT_FILE}"
+puts "Rendered #{feed_items.length} items into #{File.join(OUTPUT_DIR, "feed.xml")}"

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Planet Ruby</title>
+    <link>https://planetruby.org</link>
+    <description>The latest from the top Ruby blogs</description>
+    <language>en</language>
+    <atom:link href="https://planetruby.org/feed.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate><%= feed_items.first ? Time.parse(feed_items.first["published"]).httpdate : Time.now.utc.httpdate %></lastBuildDate>
+<% feed_items.each do |item| %>
+    <item>
+      <title><%= h(item["title"]) %></title>
+      <link><%= h(item["url"]) %></link>
+      <guid isPermaLink="true"><%= h(item["url"]) %></guid>
+      <pubDate><%= Time.parse(item["published"]).httpdate %></pubDate>
+      <source url="<%= h(item["feed_url"].to_s.empty? ? item["source_url"].to_s : item["feed_url"]) %>"><%= h(item["source"]) %></source>
+<% unless item["excerpt"].to_s.empty? %>
+      <description><%= h(item["excerpt"]) %></description>
+<% end %>
+    </item>
+<% end %>
+  </channel>
+</rss>
