@@ -13,7 +13,7 @@ OPENROUTER_API_KEY = ENV.fetch("OPENROUTER_API_KEY") {
 }
 
 OPENROUTER_URL = URI("https://openrouter.ai/api/v1/chat/completions")
-MODEL = "x-ai/grok-code-fast-1"
+MODEL = "google/gemini-3.5-flash"
 
 SYSTEM_PROMPT = <<~PROMPT
   You are a content filter for a Ruby and Rails news aggregator called Planet Ruby.
