@@ -155,6 +155,7 @@
     <outline type='rss' text='Schembri' title='Schembri' xmlUrl='https://schembri.me/rss'/>
     <outline type='rss' text='Schneems' title='Schneems' xmlUrl='https://www.schneems.com/feed.xml'/>
     <outline type='rss' text='Sinaptia' title='Sinaptia' xmlUrl='https://sinaptia.dev/feed.xml'/>
+    <outline type='rss' text='SixPatterns' title='SixPatterns' xmlUrl='https://www.sixpatterns.com/blog/feed.xml'/>
     <outline type='rss' text='Stanko Krtalic Rusendic' title='Stanko Krtalic Rusendic' xmlUrl='https://stanko.io/articles/atom'/>
     <outline type='rss' text='Stefan Wienert' title='Stefan Wienert' xmlUrl='https://www.stefanwienert.de/feed.xml'/>
     <outline type='rss' text='Steven Harman' title='Steven Harman' xmlUrl='https://stevenharman.net/feed.xml'/>
